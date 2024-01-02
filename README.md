@@ -8,11 +8,25 @@ output: [1,'a','cat',2,3,'dog',4,5]
 """
 
 def flatten_list(input_list)
-   result[]
-   for item in input_list:
+    result[]
+    for item in input_list:
        if isinstance(item, list):
           result.extend(flatten-list(item))
-      else:
+       else:
       result.appemd(item)
   return result
 
+"""2- Verilen listenin içindeki elemanları tersine döndüren bir fonksiyon yazın. Eğer listenin içindeki elemanlar da liste içeriyorsa onların elemanlarını da tersine döndürün. Örnek olarak:
+
+input: [[1, 2], [3, 4], [5, 6, 7]]
+
+output: [[[7, 6, 5], [4, 3], [2, 1]]
+"""
+def reverse_nested_list(input_list):
+    result = []
+    for item in input_list:
+        if isinstance(item, list):
+            result.append(reverse_nested_list(item)[::-1])
+        else:
+            result.append(item)
+    return result
